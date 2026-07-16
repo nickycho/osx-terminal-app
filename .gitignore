@@ -1,0 +1,12 @@
+# Xcode and macOS generated files
+.DS_Store
+build/
+DerivedData/
+
+# User-specific Xcode state
+*.xcuserstate
+xcuserdata/
+
+# SwiftPM local checkouts and caches
+.build/
+.swiftpm/
