@@ -17,6 +17,26 @@ struct AppearanceSettingsView: View {
                     }
                 }
             }
+            Section("終端機") {
+                HStack {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Scrollback Buffer")
+                        Text("套用於新分頁")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                    Spacer()
+                    Stepper(
+                        value: $settings.scrollbackLines,
+                        in: AppearanceSettings.scrollbackRange,
+                        step: 1_000
+                    ) {
+                        Text("\\(settings.scrollbackLines.formatted()) 行")
+                            .monospacedDigit()
+                            .frame(width: 88, alignment: .trailing)
+                    }
+                }
+            }
         }
         .formStyle(.grouped)
         .onChange(of: settings.fontSize) {
