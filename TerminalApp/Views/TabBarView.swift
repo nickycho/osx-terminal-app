@@ -3,22 +3,24 @@ import UniformTypeIdentifiers
 
 struct TabBarView: View {
     @EnvironmentObject var tabManager: TabManager
+    @EnvironmentObject var windowManager: TerminalWindowManager
     @State private var draggingTabID: UUID?
 
     var body: some View {
         HStack(spacing: 0) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 2) {
-                    ForEach(tabManager.tabs) { tab in
+                    ForEach(tabManager.attachedTabs) { tab in
                         TabItemView(
                             tab: tab,
                             isSelected: tab.id == tabManager.selectedTabID,
-                            isDragging: draggingTabID == tab.id
+                            isDragging: draggingTabID == tab.id,
+                            onDragStarted: { draggingTabID = tab.id },
+                            onDragEnded: {
+                                if draggingTabID == tab.id { draggingTabID = nil }
+                            },
+                            onDetach: { id in windowManager.detach(tabID: id) }
                         )
-                        .onDrag {
-                            draggingTabID = tab.id
-                            return NSItemProvider(object: tab.id.uuidString as NSString)
-                        }
                         .onDrop(
                             of: [.plainText],
                             delegate: TabDropDelegate(
@@ -83,6 +85,9 @@ struct TabItemView: View {
     @ObservedObject var tab: TerminalTab
     let isSelected: Bool
     var isDragging: Bool = false
+    var onDragStarted: () -> Void = {}
+    var onDragEnded: () -> Void = {}
+    var onDetach: (UUID) -> Void = { _ in }
 
     @EnvironmentObject var tabManager: TabManager
     @State private var isHovered = false
@@ -93,6 +98,20 @@ struct TabItemView: View {
 
     var body: some View {
         HStack(spacing: 6) {
+            ZStack {
+                Image(systemName: "line.3.horizontal")
+                    .font(.system(size: 9, weight: .medium))
+                    .foregroundStyle(.secondary)
+                TabDragSourceView(
+                    tabID: tab.id,
+                    onDragStarted: onDragStarted,
+                    onDragEnded: onDragEnded,
+                    onClick: { tabManager.selectTab(id: tab.id) },
+                    onDetach: onDetach
+                )
+            }
+            .frame(width: 16, height: 24)
+
             Circle()
                 .fill(tab.tabColor.color ?? (tab.isRunning ? Color.green : Color.gray))
                 .frame(width: 6, height: 6)

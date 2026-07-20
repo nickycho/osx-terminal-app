@@ -5,6 +5,7 @@ struct TerminalAppApp: App {
     @StateObject private var tabManager = TabManager()
     @StateObject private var shortcutSettings = ShortcutSettings.shared
     @StateObject private var scheduleManager = ScheduleManager.shared
+    @StateObject private var windowManager = TerminalWindowManager()
 
     var body: some Scene {
         WindowGroup {
@@ -12,10 +13,12 @@ struct TerminalAppApp: App {
                 .environmentObject(tabManager)
                 .environmentObject(shortcutSettings)
                 .environmentObject(scheduleManager)
+                .environmentObject(windowManager)
                 .onAppear {
                     ScheduleManager.shared.tabManager = tabManager
                     ScheduleManager.shared.startTimer()
                     ScheduleManager.shared.requestNotificationPermission()
+                    windowManager.attach(tabManager: tabManager)
                 }
         }
         .commands {

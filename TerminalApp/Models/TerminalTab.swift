@@ -38,6 +38,7 @@ final class TerminalTab: ObservableObject, Identifiable {
     @Published var currentDirectory: String?
     @Published var tabColor: TabColor = .default
     @Published var isRunning: Bool = false
+    @Published var isDetached: Bool = false
     let workingDirectory: String
 
     init(id: UUID = UUID(), workingDirectory: String = NSHomeDirectory()) {

@@ -35,6 +35,16 @@ final class ScrollbackBufferTests: XCTestCase {
         XCTAssertEqual(AppearanceSettings(defaults: defaults).scrollbackLines, 100_000)
     }
 
+    func testOutOfRangeAssignmentsPersistNormalizedValues() {
+        let settings = AppearanceSettings(defaults: defaults)
+
+        settings.scrollbackLines = 1
+        XCTAssertEqual(AppearanceSettings(defaults: defaults).scrollbackLines, 1_000)
+
+        settings.scrollbackLines = 1_000_000
+        XCTAssertEqual(AppearanceSettings(defaults: defaults).scrollbackLines, 100_000)
+    }
+
     func testNewSessionConfiguresSwiftTermScrollbackBeforeStartingShell() {
         let session = TerminalSessionManager(scrollbackLines: 25_000)
 

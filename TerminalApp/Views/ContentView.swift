@@ -15,12 +15,12 @@ struct ContentView: View {
             Divider()
 
             ZStack {
-                if tabManager.tabs.isEmpty {
+                if tabManager.attachedTabs.isEmpty {
                     emptyStateView
                 } else {
-                    ForEach(tabManager.tabs) { tab in
+                    ForEach(tabManager.attachedTabs) { tab in
                         let isSelected = tab.id == tabManager.selectedTabID
-                        TerminalContainerView(viewModel: viewModel(for: tab), isSelected: isSelected)
+                        TerminalContainerView(viewModel: tabManager.viewModel(for: tab), isSelected: isSelected)
                             .opacity(isSelected ? 1 : 0)
                             .allowsHitTesting(isSelected)
                     }
@@ -53,10 +53,4 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    private func viewModel(for tab: TerminalTab) -> TerminalViewModel {
-        if let existing = tabManager.viewModels[tab.id] { return existing }
-        let vm = TerminalViewModel(tab: tab)
-        tabManager.viewModels[tab.id] = vm
-        return vm
-    }
 }

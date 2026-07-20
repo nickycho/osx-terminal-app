@@ -7,6 +7,7 @@ import uuid
 # 所有 Swift 來源檔案（相對於 TerminalApp/ 目錄）
 SOURCE_FILES = [
     "App/TerminalAppApp.swift",
+    "App/TerminalWindowManager.swift",
     "Models/TerminalTab.swift",
     "Models/TabManager.swift",
     "Models/ShortcutSettings.swift",
@@ -18,6 +19,7 @@ SOURCE_FILES = [
     "ViewModels/TerminalViewModel.swift",
     "Views/ContentView.swift",
     "Views/TabBarView.swift",
+    "Views/TabDragSourceView.swift",
     "Views/TerminalContainerView.swift",
     "Views/TerminalNSViewWrapper.swift",
     "Views/ToastView.swift",
@@ -29,6 +31,10 @@ SOURCE_FILES = [
     "Views/Settings/AppearanceSettingsView.swift",
     "Terminal/ShellLauncher.swift",
     "Terminal/TerminalSessionManager.swift",
+]
+
+TEST_SOURCE_FILES = [
+    "ScrollbackBufferTests.swift",
 ]
 
 def uid():
@@ -66,6 +72,18 @@ SWIFTTERM_DEPENDENCY_ID  = uid()
 SWIFTTERM_BUILD_FILE_ID  = uid()
 SWIFTTERM_PACKAGE_PRODUCT_ID = uid()
 
+TEST_TARGET_ID = uid()
+TEST_SOURCE_PHASE_ID = uid()
+TEST_FRAMEWORKS_PHASE_ID = uid()
+TEST_PRODUCT_ID = uid()
+TEST_GROUP_ID = uid()
+TEST_CONFIG_LIST_ID = uid()
+TEST_DEBUG_ID = uid()
+TEST_RELEASE_ID = uid()
+TEST_DEPENDENCY_ID = uid()
+XCTEST_FILE_ID = uid()
+XCTEST_BUILD_FILE_ID = uid()
+
 XCWORKSPACE_DATA = """<?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
@@ -75,6 +93,31 @@ XCWORKSPACE_DATA = """<?xml version="1.0" encoding="UTF-8"?>
 </Workspace>
 """
 
+XCSCHEME_DATA = """<?xml version="1.0" encoding="UTF-8"?>
+<Scheme LastUpgradeVersion="1600" version="1.7">
+   <!-- App product: {APP_PRODUCT_ID}; test product: {TEST_PRODUCT_ID} -->
+   <BuildAction parallelizeBuildables="YES" buildImplicitDependencies="YES">
+      <BuildActionEntries>
+         <BuildActionEntry buildForTesting="YES" buildForRunning="YES" buildForProfiling="YES" buildForArchiving="YES" buildForAnalyzing="YES">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="{TARGET_ID}" BuildableName="TerminalApp.app" BlueprintName="TerminalApp" ReferencedContainer="container:TerminalApp.xcodeproj" />
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB" shouldUseLaunchSchemeArgsEnv="YES">
+      <Testables>
+         <TestableReference skipped="NO">
+            <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="{TEST_TARGET_ID}" BuildableName="TerminalAppTests.xctest" BlueprintName="TerminalAppTests" ReferencedContainer="container:TerminalApp.xcodeproj" />
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction buildConfiguration="Debug" selectedDebuggerIdentifier="Xcode.DebuggerFoundation.Debugger.LLDB" selectedLauncherIdentifier="Xcode.DebuggerFoundation.Launcher.LLDB" launchStyle="0" useCustomWorkingDirectory="NO" ignoresPersistentStateOnLaunch="NO" debugDocumentVersioning="YES" debugServiceExtension="internal" allowLocationSimulation="YES">
+      <BuildableProductRunnable runnableDebuggingMode="0">
+         <BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="{TARGET_ID}" BuildableName="TerminalApp.app" BlueprintName="TerminalApp" ReferencedContainer="container:TerminalApp.xcodeproj" />
+      </BuildableProductRunnable>
+   </LaunchAction>
+</Scheme>
+"""
+
 def make_pbxproj():
     # 每個 Swift 來源檔案的 file ref ID 和 build file ID
     file_refs = {}   # path -> file_ref_id
@@ -82,6 +125,12 @@ def make_pbxproj():
     for f in SOURCE_FILES:
         file_refs[f] = uid()
         build_files[f] = uid()
+
+    test_file_refs = {}
+    test_build_files = {}
+    for f in TEST_SOURCE_FILES:
+        test_file_refs[f] = uid()
+        test_build_files[f] = uid()
 
     lines = []
     lines.append("// !$*UTF8*$!")
@@ -98,9 +147,13 @@ def make_pbxproj():
     for f in SOURCE_FILES:
         name = os.path.basename(f)
         lines.append(f"\t\t{build_files[f]} /* {name} in Sources */ = {{isa = PBXBuildFile; fileRef = {file_refs[f]} /* {name} */; }};")
+    for f in TEST_SOURCE_FILES:
+        name = os.path.basename(f)
+        lines.append(f"\t\t{test_build_files[f]} /* {name} in Sources */ = {{isa = PBXBuildFile; fileRef = {test_file_refs[f]} /* {name} */; }};")
     # SwiftTerm framework
     lines.append(f"\t\t{SWIFTTERM_BUILD_FILE_ID} /* SwiftTerm in Frameworks */ = {{isa = PBXBuildFile; productRef = {SWIFTTERM_PACKAGE_PRODUCT_ID} /* SwiftTerm */; }};")
     lines.append(f"\t\t{XCASSETS_BUILD_FILE_ID} /* Assets.xcassets in Resources */ = {{isa = PBXBuildFile; fileRef = {XCASSETS_FILE_ID} /* Assets.xcassets */; }};")
+    lines.append(f"\t\t{XCTEST_BUILD_FILE_ID} /* XCTest.framework in Frameworks */ = {{isa = PBXBuildFile; fileRef = {XCTEST_FILE_ID} /* XCTest.framework */; }};")
     lines.append("/* End PBXBuildFile section */")
     lines.append("")
 
@@ -109,7 +162,12 @@ def make_pbxproj():
     for f in SOURCE_FILES:
         name = os.path.basename(f)
         lines.append(f'\t\t{file_refs[f]} /* {name} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "{name}"; sourceTree = "<group>"; }};')
+    for f in TEST_SOURCE_FILES:
+        name = os.path.basename(f)
+        lines.append(f'\t\t{test_file_refs[f]} /* {name} */ = {{isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "{name}"; sourceTree = "<group>"; }};')
     lines.append(f'\t\t{APP_PRODUCT_ID} /* TerminalApp.app */ = {{isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerminalApp.app; sourceTree = BUILT_PRODUCTS_DIR; }};')
+    lines.append(f'\t\t{TEST_PRODUCT_ID} /* TerminalAppTests.xctest */ = {{isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TerminalAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; }};')
+    lines.append(f'\t\t{XCTEST_FILE_ID} /* XCTest.framework */ = {{isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; }};')
     lines.append(f'\t\t{ENTITLEMENTS_FILE_ID} /* TerminalApp.entitlements */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TerminalApp.entitlements; sourceTree = "<group>"; }};')
     lines.append(f'\t\t{INFOPLIST_FILE_ID} /* Info.plist */ = {{isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; }};')
     lines.append(f'\t\t{XCASSETS_FILE_ID} /* Assets.xcassets */ = {{isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; }};')
@@ -152,6 +210,18 @@ def make_pbxproj():
     lines.append("/* End PBXFrameworksBuildPhase section */")
     lines.append("")
 
+    lines.append("/* Begin PBXFrameworksBuildPhase section */")
+    lines.append(f"\t\t{TEST_FRAMEWORKS_PHASE_ID} /* Frameworks */ = {{")
+    lines.append(f"\t\t\tisa = PBXFrameworksBuildPhase;")
+    lines.append(f"\t\t\tbuildActionMask = 2147483647;")
+    lines.append(f"\t\t\tfiles = (")
+    lines.append(f"\t\t\t\t{XCTEST_BUILD_FILE_ID} /* XCTest.framework in Frameworks */,")
+    lines.append(f"\t\t\t);")
+    lines.append(f"\t\t\trunOnlyForDeploymentPostprocessing = 0;")
+    lines.append(f"\t\t}};")
+    lines.append("/* End PBXFrameworksBuildPhase section */")
+    lines.append("")
+
     # Build groups hierarchy
     # App/ Models/ ViewModels/ Views/ Views/Settings/ Terminal/ Resources/
     app_group_id     = uid()
@@ -172,6 +242,8 @@ def make_pbxproj():
     lines.append(f"\t\t\tisa = PBXGroup;")
     lines.append(f"\t\t\tchildren = (")
     lines.append(f"\t\t\t\t{SOURCES_GROUP_ID} /* TerminalApp */,")
+    lines.append(f"\t\t\t\t{TEST_GROUP_ID} /* TerminalAppTests */,")
+    lines.append(f"\t\t\t\t{FRAMEWORKS_GROUP_ID} /* Frameworks */,")
     lines.append(f"\t\t\t\t{PRODUCTS_GROUP_ID} /* Products */,")
     lines.append(f"\t\t\t);")
     lines.append(f"\t\t\tsourceTree = \"<group>\";")
@@ -182,8 +254,28 @@ def make_pbxproj():
     lines.append(f"\t\t\tisa = PBXGroup;")
     lines.append(f"\t\t\tchildren = (")
     lines.append(f"\t\t\t\t{APP_PRODUCT_ID} /* TerminalApp.app */,")
+    lines.append(f"\t\t\t\t{TEST_PRODUCT_ID} /* TerminalAppTests.xctest */,")
     lines.append(f"\t\t\t);")
     lines.append(f"\t\t\tname = Products;")
+    lines.append(f"\t\t\tsourceTree = \"<group>\";")
+    lines.append(f"\t\t}};")
+
+    lines.append(f"\t\t{FRAMEWORKS_GROUP_ID} /* Frameworks */ = {{")
+    lines.append(f"\t\t\tisa = PBXGroup;")
+    lines.append(f"\t\t\tchildren = (")
+    lines.append(f"\t\t\t\t{XCTEST_FILE_ID} /* XCTest.framework */,")
+    lines.append(f"\t\t\t);")
+    lines.append(f"\t\t\tname = Frameworks;")
+    lines.append(f"\t\t\tsourceTree = \"<group>\";")
+    lines.append(f"\t\t}};")
+
+    lines.append(f"\t\t{TEST_GROUP_ID} /* TerminalAppTests */ = {{")
+    lines.append(f"\t\t\tisa = PBXGroup;")
+    lines.append(f"\t\t\tchildren = (")
+    for f in TEST_SOURCE_FILES:
+        lines.append(f"\t\t\t\t{test_file_refs[f]} /* {os.path.basename(f)} */,")
+    lines.append(f"\t\t\t);")
+    lines.append(f"\t\t\tpath = TerminalAppTests;")
     lines.append(f"\t\t\tsourceTree = \"<group>\";")
     lines.append(f"\t\t}};")
 
@@ -272,6 +364,23 @@ def make_pbxproj():
     lines.append(f'\t\t\tproductReference = {APP_PRODUCT_ID} /* TerminalApp.app */;')
     lines.append(f'\t\t\tproductType = "com.apple.product-type.application";')
     lines.append(f"\t\t}};")
+    lines.append(f"\t\t{TEST_TARGET_ID} /* TerminalAppTests */ = {{")
+    lines.append(f"\t\t\tisa = PBXNativeTarget;")
+    lines.append(f"\t\t\tbuildConfigurationList = {TEST_CONFIG_LIST_ID} /* Build configuration list for PBXNativeTarget \"TerminalAppTests\" */;")
+    lines.append(f"\t\t\tbuildPhases = (")
+    lines.append(f"\t\t\t\t{TEST_SOURCE_PHASE_ID} /* Sources */,")
+    lines.append(f"\t\t\t\t{TEST_FRAMEWORKS_PHASE_ID} /* Frameworks */,")
+    lines.append(f"\t\t\t);")
+    lines.append(f"\t\t\tbuildRules = (")
+    lines.append(f"\t\t\t);")
+    lines.append(f"\t\t\tdependencies = (")
+    lines.append(f"\t\t\t\t{TEST_DEPENDENCY_ID} /* PBXTargetDependency */,")
+    lines.append(f"\t\t\t);")
+    lines.append(f'\t\t\tname = TerminalAppTests;')
+    lines.append(f'\t\t\tproductName = TerminalAppTests;')
+    lines.append(f'\t\t\tproductReference = {TEST_PRODUCT_ID} /* TerminalAppTests.xctest */;')
+    lines.append(f'\t\t\tproductType = "com.apple.product-type.bundle.unit-test";')
+    lines.append(f"\t\t}};")
     lines.append("/* End PBXNativeTarget section */")
     lines.append("")
 
@@ -285,6 +394,9 @@ def make_pbxproj():
     lines.append(f'\t\t\t\tLastUpgradeCheck = 1600;')
     lines.append(f"\t\t\t\tTargetAttributes = {{")
     lines.append(f"\t\t\t\t\t{TARGET_ID} = {{")
+    lines.append(f"\t\t\t\t\t\tCreatedOnToolsVersion = 16.0;")
+    lines.append(f"\t\t\t\t\t}};")
+    lines.append(f"\t\t\t\t\t{TEST_TARGET_ID} = {{")
     lines.append(f"\t\t\t\t\t\tCreatedOnToolsVersion = 16.0;")
     lines.append(f"\t\t\t\t\t}};")
     lines.append(f"\t\t\t\t}};")
@@ -306,6 +418,7 @@ def make_pbxproj():
     lines.append(f'\t\t\tprojectRoot = "";')
     lines.append(f'\t\t\ttargets = (')
     lines.append(f'\t\t\t\t{TARGET_ID} /* TerminalApp */,')
+    lines.append(f'\t\t\t\t{TEST_TARGET_ID} /* TerminalAppTests */,')
     lines.append(f'\t\t\t);')
     lines.append(f"\t\t}};")
     lines.append("/* End PBXProject section */")
@@ -324,6 +437,14 @@ def make_pbxproj():
     lines.append("/* End PBXResourcesBuildPhase section */")
     lines.append("")
 
+    lines.append("/* Begin PBXTargetDependency section */")
+    lines.append(f"\t\t{TEST_DEPENDENCY_ID} /* PBXTargetDependency */ = {{")
+    lines.append(f"\t\t\tisa = PBXTargetDependency;")
+    lines.append(f"\t\t\ttarget = {TARGET_ID} /* TerminalApp */;")
+    lines.append(f"\t\t}};")
+    lines.append("/* End PBXTargetDependency section */")
+    lines.append("")
+
     # PBXSourcesBuildPhase
     lines.append("/* Begin PBXSourcesBuildPhase section */")
     lines.append(f"\t\t{SOURCE_PHASE_ID} /* Sources */ = {{")
@@ -333,6 +454,19 @@ def make_pbxproj():
     for f in SOURCE_FILES:
         name = os.path.basename(f)
         lines.append(f"\t\t\t\t{build_files[f]} /* {name} in Sources */,")
+    lines.append(f"\t\t\t);")
+    lines.append(f"\t\t\trunOnlyForDeploymentPostprocessing = 0;")
+    lines.append(f"\t\t}};")
+    lines.append("/* End PBXSourcesBuildPhase section */")
+    lines.append("")
+
+    lines.append("/* Begin PBXSourcesBuildPhase section */")
+    lines.append(f"\t\t{TEST_SOURCE_PHASE_ID} /* Sources */ = {{")
+    lines.append(f"\t\t\tisa = PBXSourcesBuildPhase;")
+    lines.append(f"\t\t\tbuildActionMask = 2147483647;")
+    lines.append(f"\t\t\tfiles = (")
+    for f in TEST_SOURCE_FILES:
+        lines.append(f"\t\t\t\t{test_build_files[f]} /* {os.path.basename(f)} in Sources */,")
     lines.append(f"\t\t\t);")
     lines.append(f"\t\t\trunOnlyForDeploymentPostprocessing = 0;")
     lines.append(f"\t\t}};")
@@ -437,6 +571,21 @@ def make_pbxproj():
     lines.append(f'\t\t\tname = Release;')
     lines.append(f"\t\t}};")
 
+    for config_id, config_name in ((TEST_DEBUG_ID, "Debug"), (TEST_RELEASE_ID, "Release")):
+        lines.append(f"\t\t{config_id} /* {config_name} */ = {{")
+        lines.append(f"\t\t\tisa = XCBuildConfiguration;")
+        lines.append(f"\t\t\tbuildSettings = {{")
+        lines.append(f'\t\t\t\tBUNDLE_LOADER = "$(TEST_HOST)";')
+        lines.append(f'\t\t\t\tGENERATE_INFOPLIST_FILE = YES;')
+        lines.append(f'\t\t\t\tMACOSX_DEPLOYMENT_TARGET = 14.0;')
+        lines.append(f'\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = com.nickycho.TerminalAppTests;')
+        lines.append(f'\t\t\t\tPRODUCT_NAME = "$(TARGET_NAME)";')
+        lines.append(f'\t\t\t\tSWIFT_VERSION = 5.0;')
+        lines.append(f'\t\t\t\tTEST_HOST = "$(BUILT_PRODUCTS_DIR)/TerminalApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TerminalApp";')
+        lines.append(f"\t\t\t}};")
+        lines.append(f'\t\t\tname = {config_name};')
+        lines.append(f"\t\t}};")
+
     lines.append("/* End XCBuildConfiguration section */")
     lines.append("")
 
@@ -457,6 +606,16 @@ def make_pbxproj():
     lines.append(f"\t\t\tbuildConfigurations = (")
     lines.append(f"\t\t\t\t{TARGET_DEBUG_ID} /* Debug */,")
     lines.append(f"\t\t\t\t{TARGET_RELEASE_ID} /* Release */,")
+    lines.append(f"\t\t\t);")
+    lines.append(f'\t\t\tdefaultConfigurationIsVisible = 0;')
+    lines.append(f'\t\t\tdefaultConfigurationName = Release;')
+    lines.append(f"\t\t}};")
+
+    lines.append(f"\t\t{TEST_CONFIG_LIST_ID} /* Build configuration list for PBXNativeTarget \"TerminalAppTests\" */ = {{")
+    lines.append(f"\t\t\tisa = XCConfigurationList;")
+    lines.append(f"\t\t\tbuildConfigurations = (")
+    lines.append(f"\t\t\t\t{TEST_DEBUG_ID} /* Debug */,")
+    lines.append(f"\t\t\t\t{TEST_RELEASE_ID} /* Release */,")
     lines.append(f"\t\t\t);")
     lines.append(f'\t\t\tdefaultConfigurationIsVisible = 0;')
     lines.append(f'\t\t\tdefaultConfigurationName = Release;')
@@ -489,5 +648,17 @@ if __name__ == "__main__":
     with open(ws_data_path, "w") as f:
         f.write(XCWORKSPACE_DATA)
     print(f"已生成: {ws_data_path}")
+
+    scheme_dir = os.path.join(xcodeproj_dir, "xcshareddata", "xcschemes")
+    os.makedirs(scheme_dir, exist_ok=True)
+    scheme_path = os.path.join(scheme_dir, "TerminalApp.xcscheme")
+    with open(scheme_path, "w") as f:
+        f.write(XCSCHEME_DATA.format(
+            TARGET_ID=TARGET_ID,
+            TEST_TARGET_ID=TEST_TARGET_ID,
+            APP_PRODUCT_ID=APP_PRODUCT_ID,
+            TEST_PRODUCT_ID=TEST_PRODUCT_ID,
+        ))
+    print(f"已生成: {scheme_path}")
 
     print("完成！")

@@ -7,190 +7,251 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CD876B32C944C50956BDBC6 /* TerminalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADBE9DF1B2694038B146CDA0 /* TerminalViewModel.swift */; };
-		1F7A4FA49EE24E7BB4348851 /* TabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24683FD618D4466D979C98E0 /* TabManager.swift */; };
-		20933252A1EC46109095BF7C /* AppearanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EA45968614415AEC77325 /* AppearanceSettings.swift */; };
-		216C5536E14547CB937D8194 /* ShortcutRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66E7B057A8B43FD83132B04 /* ShortcutRecorderView.swift */; };
-		235EE0F0D2774A76B70F8D66 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25BFA83D43A49BE92D72F42 /* KeyboardHandler.swift */; };
-		254015ABA4A2444AACB11E4B /* ShortcutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401C768FEB0247A28BF70A08 /* ShortcutSettings.swift */; };
-		40C4CDE3310441C987617ECE /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DE0980238447E9BBD57E6F /* ScheduleManager.swift */; };
-		4943BA6558604F25B5BED0F8 /* TerminalAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA203E2BF7074E26AA80B045 /* TerminalAppApp.swift */; };
-		4D1D092DB7014300A8732C06 /* TerminalTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0E5BDA729F4F39BF283B09 /* TerminalTab.swift */; };
-		5FDD7F3741A9409FA258B937 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BE233DECBD472BAB161029 /* ToastView.swift */; };
-		63CF3C9F559F485181019592 /* ShortcutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C45393678459FA03BA15C /* ShortcutSettingsView.swift */; };
-		64940206EE0A461EBD8B04CE /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAFBC255F72478EA23D5411 /* ScheduleListView.swift */; };
-		6EC29968FC044A52B829444E /* TerminalNSViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C19E03A644442DBBA5A5294 /* TerminalNSViewWrapper.swift */; };
-		744A4DC4149845C8BD4944D0 /* ScheduleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08E8CD9F2034858A7764D19 /* ScheduleEditView.swift */; };
-		857D781366494470B5C6DA3C /* TerminalContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9252A4A8A7400F86BCD409 /* TerminalContainerView.swift */; };
-		8E1017FA501A4352BA85B7D5 /* TerminalSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A82E1C3123DD4FFF9761EA49 /* TerminalSessionManager.swift */; };
-		8ECD4497CE8C491DAA6D587C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5AC53072044D39B13B388C /* TabBarView.swift */; };
-		AF33EA3491904007910668B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D235958B4C974F8FB02FAE65 /* ContentView.swift */; };
-		AF37EA67C95E43AAB03C365D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5B4566A78B8477BAB63FF1B /* Assets.xcassets */; };
-		D79A1E37017C41768551515F /* ScheduleMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6952520F01D47928021617F /* ScheduleMenuCommands.swift */; };
-		DAC10ED65BD84214A5808589 /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 9DC84C6CF57944B3A0F16E72 /* SwiftTerm */; };
-		DBC09627A2D44878915995E7 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF055B8518E4AB8953B726A /* AppearanceSettingsView.swift */; };
-		E1CA6204659F4ABE9457650D /* ScheduledInputItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32703CF701444F798252DDBC /* ScheduledInputItem.swift */; };
-		F4F4F393044F41648DBEA36A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111BA16053C140D7B69943E0 /* SettingsView.swift */; };
-		F9F843BB3CD042A69BE1E9B5 /* ShellLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE09AF1ACB41C9B2A24DC4 /* ShellLauncher.swift */; };
+		E0F7023597A349AD9942EC26 /* TerminalAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2381DA9E9D48E8B4BAAC07 /* TerminalAppApp.swift */; };
+		60F3D51BA3D9430793858A46 /* TerminalWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB685E112B154B6F812CB447 /* TerminalWindowManager.swift */; };
+		B45DEF335F084F69B8D62C90 /* TerminalTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA3A56501D043D78546B9C6 /* TerminalTab.swift */; };
+		59C8538CFAA1425C96A56793 /* TabManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497E28B95E814C038E6543CA /* TabManager.swift */; };
+		02F3475CECF34FA08FA2D897 /* ShortcutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4AAA9CB590481BA50D50BA /* ShortcutSettings.swift */; };
+		314F3B0BCCA34AD79E13FEA6 /* AppearanceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18164ADD1F743F5AAD21014 /* AppearanceSettings.swift */; };
+		4DE8A725956E4BE181C0CF21 /* ScheduleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44496EC19CAD4D4DA798D38C /* ScheduleManager.swift */; };
+		81DFFC6B701D4ACFAF3FB1A3 /* ScheduledInputItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4139718A18D943BFBADDBE4B /* ScheduledInputItem.swift */; };
+		CEE54BA4EA454F7A87CDCE98 /* ScheduleMenuCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376E3BC028E34105B0DDC6B1 /* ScheduleMenuCommands.swift */; };
+		E30C2CE7C1034BB7B396EEA9 /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB5E057FA3B41B5ABD7DCD5 /* KeyboardHandler.swift */; };
+		6E3356DB29D54B67ADFAC939 /* TerminalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC97BDF65904A1C8753AB54 /* TerminalViewModel.swift */; };
+		9FD57B6E1FDC45E2AEE2216C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2C765B4DF54483AEF953A9 /* ContentView.swift */; };
+		55C8BE803E194E5E9332D750 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A628C904A83743EAAB0A2EEC /* TabBarView.swift */; };
+		44FF33B7A54441E19C449793 /* TabDragSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E38696E5FB45169A144979 /* TabDragSourceView.swift */; };
+		C6FFCBCADFCC4FBEB9B58578 /* TerminalContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CD4934E0024776B0219AC4 /* TerminalContainerView.swift */; };
+		61628446EEF24158A4486D23 /* TerminalNSViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFE121B1ED9490191A6EB6D /* TerminalNSViewWrapper.swift */; };
+		C340352BD85E4BF58369567E /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A2312ABC7D4A139FC7D40B /* ToastView.swift */; };
+		97CA4535AA834DB6AF9A3A09 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48077F9AA8874EBF85BEF931 /* SettingsView.swift */; };
+		4A83352DAEC94B7FB7849043 /* ShortcutSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B00BBC067A4E9EA5A8EFC8 /* ShortcutSettingsView.swift */; };
+		EDC99A1EBA48453DBF6CAFA0 /* ShortcutRecorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985367D37949401FBC9B5749 /* ShortcutRecorderView.swift */; };
+		03065BE8E1CC469F968149A9 /* ScheduleListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029C7BE467844D9FA9A0512A /* ScheduleListView.swift */; };
+		AA4D7F959E734C16B04C34B3 /* ScheduleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063394D66B748728EB78841 /* ScheduleEditView.swift */; };
+		073FA86524EF42BAAE808938 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4084BE02A644C33B73ED1BC /* AppearanceSettingsView.swift */; };
+		ED9B0E7982064B55AF18853D /* ShellLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9961E0CDC2544842BC19BBAA /* ShellLauncher.swift */; };
+		576D7F55CD4B408BADDBCD44 /* TerminalSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80273692DE2D41EBB941EE0D /* TerminalSessionManager.swift */; };
+		7DE3B60FF2D04041ACA00E6E /* ScrollbackBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0440FCE301464DAD5F403C /* ScrollbackBufferTests.swift */; };
+		94E64FC43C404C4FA029333B /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 7B73D7C488A04DC5828CB2B5 /* SwiftTerm */; };
+		FEA8B3A9BE1E49A78935F424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0AE5C65CFF42EBB8B7DC3B /* Assets.xcassets */; };
+		DCB4E702985140EF9B877FA1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F660F49A564572921DB5DE /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		074EA45968614415AEC77325 /* AppearanceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettings.swift; sourceTree = "<group>"; };
-		111BA16053C140D7B69943E0 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		1E37BCE9252C4531BBD72281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24683FD618D4466D979C98E0 /* TabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManager.swift; sourceTree = "<group>"; };
-		32703CF701444F798252DDBC /* ScheduledInputItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledInputItem.swift; sourceTree = "<group>"; };
-		3E0E5BDA729F4F39BF283B09 /* TerminalTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalTab.swift; sourceTree = "<group>"; };
-		401C768FEB0247A28BF70A08 /* ShortcutSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSettings.swift; sourceTree = "<group>"; };
-		4DAFBC255F72478EA23D5411 /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListView.swift; sourceTree = "<group>"; };
-		4F2C45393678459FA03BA15C /* ShortcutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutSettingsView.swift; sourceTree = "<group>"; };
-		6C19E03A644442DBBA5A5294 /* TerminalNSViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalNSViewWrapper.swift; sourceTree = "<group>"; };
-		6FA6059E94674CE08F3B48BF /* TerminalApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TerminalApp.entitlements; sourceTree = "<group>"; };
-		99DE0980238447E9BBD57E6F /* ScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleManager.swift; sourceTree = "<group>"; };
-		9F9252A4A8A7400F86BCD409 /* TerminalContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalContainerView.swift; sourceTree = "<group>"; };
-		A25BFA83D43A49BE92D72F42 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
-		A66E7B057A8B43FD83132B04 /* ShortcutRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutRecorderView.swift; sourceTree = "<group>"; };
-		A82E1C3123DD4FFF9761EA49 /* TerminalSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalSessionManager.swift; sourceTree = "<group>"; };
-		ADBE9DF1B2694038B146CDA0 /* TerminalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalViewModel.swift; sourceTree = "<group>"; };
-		C08E8CD9F2034858A7764D19 /* ScheduleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditView.swift; sourceTree = "<group>"; };
-		C5B4566A78B8477BAB63FF1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CFAE09AF1ACB41C9B2A24DC4 /* ShellLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellLauncher.swift; sourceTree = "<group>"; };
-		D235958B4C974F8FB02FAE65 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D6952520F01D47928021617F /* ScheduleMenuCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMenuCommands.swift; sourceTree = "<group>"; };
-		DA203E2BF7074E26AA80B045 /* TerminalAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminalAppApp.swift; sourceTree = "<group>"; };
-		E5BE233DECBD472BAB161029 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		E7A161D7F17649D5B0373B9D /* TerminalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerminalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDF055B8518E4AB8953B726A /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
-		FF5AC53072044D39B13B388C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		1B2381DA9E9D48E8B4BAAC07 /* TerminalAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TerminalAppApp.swift"; sourceTree = "<group>"; };
+		DB685E112B154B6F812CB447 /* TerminalWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TerminalWindowManager.swift"; sourceTree = "<group>"; };
+		ADA3A56501D043D78546B9C6 /* TerminalTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TerminalTab.swift"; sourceTree = "<group>"; };
+		497E28B95E814C038E6543CA /* TabManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabManager.swift"; sourceTree = "<group>"; };
+		7A4AAA9CB590481BA50D50BA /* ShortcutSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShortcutSettings.swift"; sourceTree = "<group>"; };
+		A18164ADD1F743F5AAD21014 /* AppearanceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppearanceSettings.swift"; sourceTree = "<group>"; };
+		44496EC19CAD4D4DA798D38C /* ScheduleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleManager.swift"; sourceTree = "<group>"; };
+		4139718A18D943BFBADDBE4B /* ScheduledInputItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduledInputItem.swift"; sourceTree = "<group>"; };
+		376E3BC028E34105B0DDC6B1 /* ScheduleMenuCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleMenuCommands.swift"; sourceTree = "<group>"; };
+		DEB5E057FA3B41B5ABD7DCD5 /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardHandler.swift"; sourceTree = "<group>"; };
+		AAC97BDF65904A1C8753AB54 /* TerminalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TerminalViewModel.swift"; sourceTree = "<group>"; };
+		7B2C765B4DF54483AEF953A9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView.swift"; sourceTree = "<group>"; };
+		A628C904A83743EAAB0A2EEC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarView.swift"; sourceTree = "<group>"; };
+		36E38696E5FB45169A144979 /* TabDragSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabDragSourceView.swift"; sourceTree = "<group>"; };
+		26CD4934E0024776B0219AC4 /* TerminalContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TerminalContainerView.swift"; sourceTree = "<group>"; };
+		9EFE121B1ED9490191A6EB6D /* TerminalNSViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TerminalNSViewWrapper.swift"; sourceTree = "<group>"; };
+		76A2312ABC7D4A139FC7D40B /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToastView.swift"; sourceTree = "<group>"; };
+		48077F9AA8874EBF85BEF931 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsView.swift"; sourceTree = "<group>"; };
+		53B00BBC067A4E9EA5A8EFC8 /* ShortcutSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShortcutSettingsView.swift"; sourceTree = "<group>"; };
+		985367D37949401FBC9B5749 /* ShortcutRecorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShortcutRecorderView.swift"; sourceTree = "<group>"; };
+		029C7BE467844D9FA9A0512A /* ScheduleListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleListView.swift"; sourceTree = "<group>"; };
+		C063394D66B748728EB78841 /* ScheduleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduleEditView.swift"; sourceTree = "<group>"; };
+		C4084BE02A644C33B73ED1BC /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppearanceSettingsView.swift"; sourceTree = "<group>"; };
+		9961E0CDC2544842BC19BBAA /* ShellLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShellLauncher.swift"; sourceTree = "<group>"; };
+		80273692DE2D41EBB941EE0D /* TerminalSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TerminalSessionManager.swift"; sourceTree = "<group>"; };
+		8F0440FCE301464DAD5F403C /* ScrollbackBufferTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollbackBufferTests.swift"; sourceTree = "<group>"; };
+		D4BAECEF0A6D46C69D2B5AF1 /* TerminalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerminalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C5C3C0E41C24439BAA59511 /* TerminalAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TerminalAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5F660F49A564572921DB5DE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = System/Library/Frameworks/XCTest.framework; sourceTree = SDKROOT; };
+		8AAC868387E042E59E102D6B /* TerminalApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TerminalApp.entitlements; sourceTree = "<group>"; };
+		39DA54936E28446E95A20286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE0AE5C65CFF42EBB8B7DC3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		BF3CC323DABA44F1A676846A /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = "1.0.0";
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7B73D7C488A04DC5828CB2B5 /* SwiftTerm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF3CC323DABA44F1A676846A /* XCRemoteSwiftPackageReference "SwiftTerm" */;
+			productName = SwiftTerm;
+		};
+/* End XCSwiftPackageProductDependency section */
+
 /* Begin PBXFrameworksBuildPhase section */
-		E18CAB014B784403843527D1 /* Frameworks */ = {
+		424244F22DE44FF99EA8B7F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAC10ED65BD84214A5808589 /* SwiftTerm in Frameworks */,
+				94E64FC43C404C4FA029333B /* SwiftTerm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46666BD12ACD4605B7E232AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCB4E702985140EF9B877FA1 /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08A451F85A794E63B0CC974E /* Terminal */ = {
+		2CBDE2FAFA5F481190EB721D = {
 			isa = PBXGroup;
 			children = (
-				CFAE09AF1ACB41C9B2A24DC4 /* ShellLauncher.swift */,
-				A82E1C3123DD4FFF9761EA49 /* TerminalSessionManager.swift */,
+				6C01483FC835434CAE325A25 /* TerminalApp */,
+				D09CABE2B13444E8951A85F3 /* TerminalAppTests */,
+				9EDAAEFAB5EF4B228F11DB8E /* Frameworks */,
+				735358C5E7CA46F2BF496995 /* Products */,
 			);
-			path = Terminal;
 			sourceTree = "<group>";
 		};
-		0B2B575DE22F499A9168F871 /* Products */ = {
+		735358C5E7CA46F2BF496995 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E7A161D7F17649D5B0373B9D /* TerminalApp.app */,
+				D4BAECEF0A6D46C69D2B5AF1 /* TerminalApp.app */,
+				8C5C3C0E41C24439BAA59511 /* TerminalAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3D1F3DBE302348E992CC26C3 /* ViewModels */ = {
+		9EDAAEFAB5EF4B228F11DB8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A25BFA83D43A49BE92D72F42 /* KeyboardHandler.swift */,
-				ADBE9DF1B2694038B146CDA0 /* TerminalViewModel.swift */,
+				A5F660F49A564572921DB5DE /* XCTest.framework */,
 			);
-			path = ViewModels;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6EEE4B22CD3A440FA41A3559 /* TerminalApp */ = {
+		D09CABE2B13444E8951A85F3 /* TerminalAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				E49CF18A3E41418787D480CC /* App */,
-				C2896691D36648F78C6792DA /* Models */,
-				3D1F3DBE302348E992CC26C3 /* ViewModels */,
-				E5BF7C573198483F9F38CF43 /* Views */,
-				08A451F85A794E63B0CC974E /* Terminal */,
-				D17645BE3D444A2A9EA8CF70 /* Resources */,
+				8F0440FCE301464DAD5F403C /* ScrollbackBufferTests.swift */,
 			);
+			path = TerminalAppTests;
+			sourceTree = "<group>";
+		};
+		6C01483FC835434CAE325A25 /* TerminalApp */ = {
+			isa = PBXGroup;
+			children = (
+				52ECE06F6D7C41969E71943B /* App */,
+				5923821294064B88B3B63777 /* Models */,
+				AA26685685564704B42DA3EC /* ViewModels */,
+				8C157DA7C6D2496791BD9DFE /* Views */,
+				F576C2872A934015A2A4A25A /* Terminal */,
+				E0F0F720CB3D4747AC790F35 /* Resources */,
+			);
+			name = TerminalApp;
 			path = TerminalApp;
 			sourceTree = "<group>";
 		};
-		C2896691D36648F78C6792DA /* Models */ = {
+		52ECE06F6D7C41969E71943B /* App */ = {
 			isa = PBXGroup;
 			children = (
-				3E0E5BDA729F4F39BF283B09 /* TerminalTab.swift */,
-				24683FD618D4466D979C98E0 /* TabManager.swift */,
-				401C768FEB0247A28BF70A08 /* ShortcutSettings.swift */,
-				074EA45968614415AEC77325 /* AppearanceSettings.swift */,
-				99DE0980238447E9BBD57E6F /* ScheduleManager.swift */,
-				32703CF701444F798252DDBC /* ScheduledInputItem.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		D17645BE3D444A2A9EA8CF70 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				6FA6059E94674CE08F3B48BF /* TerminalApp.entitlements */,
-				1E37BCE9252C4531BBD72281 /* Info.plist */,
-				C5B4566A78B8477BAB63FF1B /* Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		E49CF18A3E41418787D480CC /* App */ = {
-			isa = PBXGroup;
-			children = (
-				DA203E2BF7074E26AA80B045 /* TerminalAppApp.swift */,
-				D6952520F01D47928021617F /* ScheduleMenuCommands.swift */,
+				1B2381DA9E9D48E8B4BAAC07 /* TerminalAppApp.swift */,
+				DB685E112B154B6F812CB447 /* TerminalWindowManager.swift */,
+				376E3BC028E34105B0DDC6B1 /* ScheduleMenuCommands.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		E5BF7C573198483F9F38CF43 /* Views */ = {
+		5923821294064B88B3B63777 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D235958B4C974F8FB02FAE65 /* ContentView.swift */,
-				FF5AC53072044D39B13B388C /* TabBarView.swift */,
-				9F9252A4A8A7400F86BCD409 /* TerminalContainerView.swift */,
-				6C19E03A644442DBBA5A5294 /* TerminalNSViewWrapper.swift */,
-				E5BE233DECBD472BAB161029 /* ToastView.swift */,
-				F08F314331FA45589C6B6C6D /* Settings */,
+				ADA3A56501D043D78546B9C6 /* TerminalTab.swift */,
+				497E28B95E814C038E6543CA /* TabManager.swift */,
+				7A4AAA9CB590481BA50D50BA /* ShortcutSettings.swift */,
+				A18164ADD1F743F5AAD21014 /* AppearanceSettings.swift */,
+				44496EC19CAD4D4DA798D38C /* ScheduleManager.swift */,
+				4139718A18D943BFBADDBE4B /* ScheduledInputItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AA26685685564704B42DA3EC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DEB5E057FA3B41B5ABD7DCD5 /* KeyboardHandler.swift */,
+				AAC97BDF65904A1C8753AB54 /* TerminalViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8C157DA7C6D2496791BD9DFE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B2C765B4DF54483AEF953A9 /* ContentView.swift */,
+				A628C904A83743EAAB0A2EEC /* TabBarView.swift */,
+				36E38696E5FB45169A144979 /* TabDragSourceView.swift */,
+				26CD4934E0024776B0219AC4 /* TerminalContainerView.swift */,
+				9EFE121B1ED9490191A6EB6D /* TerminalNSViewWrapper.swift */,
+				76A2312ABC7D4A139FC7D40B /* ToastView.swift */,
+				E849FC29DEB54270A10B3E15 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F08F314331FA45589C6B6C6D /* Settings */ = {
+		F576C2872A934015A2A4A25A /* Terminal */ = {
 			isa = PBXGroup;
 			children = (
-				111BA16053C140D7B69943E0 /* SettingsView.swift */,
-				4F2C45393678459FA03BA15C /* ShortcutSettingsView.swift */,
-				A66E7B057A8B43FD83132B04 /* ShortcutRecorderView.swift */,
-				4DAFBC255F72478EA23D5411 /* ScheduleListView.swift */,
-				C08E8CD9F2034858A7764D19 /* ScheduleEditView.swift */,
-				FDF055B8518E4AB8953B726A /* AppearanceSettingsView.swift */,
+				9961E0CDC2544842BC19BBAA /* ShellLauncher.swift */,
+				80273692DE2D41EBB941EE0D /* TerminalSessionManager.swift */,
+			);
+			path = Terminal;
+			sourceTree = "<group>";
+		};
+		E849FC29DEB54270A10B3E15 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				48077F9AA8874EBF85BEF931 /* SettingsView.swift */,
+				53B00BBC067A4E9EA5A8EFC8 /* ShortcutSettingsView.swift */,
+				985367D37949401FBC9B5749 /* ShortcutRecorderView.swift */,
+				029C7BE467844D9FA9A0512A /* ScheduleListView.swift */,
+				C063394D66B748728EB78841 /* ScheduleEditView.swift */,
+				C4084BE02A644C33B73ED1BC /* AppearanceSettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		FEAA8420ADF1497DB9020520 = {
+		E0F0F720CB3D4747AC790F35 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6EEE4B22CD3A440FA41A3559 /* TerminalApp */,
-				0B2B575DE22F499A9168F871 /* Products */,
+				8AAC868387E042E59E102D6B /* TerminalApp.entitlements */,
+				39DA54936E28446E95A20286 /* Info.plist */,
+				CE0AE5C65CFF42EBB8B7DC3B /* Assets.xcassets */,
 			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4630FD1250E94264990A6C1D /* TerminalApp */ = {
+		468EF5E72E4E4CE6BD347CA8 /* TerminalApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8E472FDE45C4E40BEA882AC /* Build configuration list for PBXNativeTarget "TerminalApp" */;
+			buildConfigurationList = D5241B412616419B9F3E6957 /* Build configuration list for PBXNativeTarget "TerminalApp" */;
 			buildPhases = (
-				35DCD271B1A145AAB6AAD2DD /* Sources */,
-				E18CAB014B784403843527D1 /* Frameworks */,
-				D5376C2274D342A387D038D1 /* Resources */,
+				ED73316D823243BC84E52F0B /* Sources */,
+				424244F22DE44FF99EA8B7F3 /* Frameworks */,
+				AE56427793064E87B49619B7 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -198,95 +259,135 @@
 			);
 			name = TerminalApp;
 			packageProductDependencies = (
-				9DC84C6CF57944B3A0F16E72 /* SwiftTerm */,
+				7B73D7C488A04DC5828CB2B5 /* SwiftTerm */,
 			);
 			productName = TerminalApp;
-			productReference = E7A161D7F17649D5B0373B9D /* TerminalApp.app */;
+			productReference = D4BAECEF0A6D46C69D2B5AF1 /* TerminalApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0BD8241A91E843F69AE90D25 /* TerminalAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13898F8AA3B54F09B6AC1C11 /* Build configuration list for PBXNativeTarget "TerminalAppTests" */;
+			buildPhases = (
+				ED2D3F47294D4A43AE10BFE9 /* Sources */,
+				46666BD12ACD4605B7E232AD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				12850B1D15594737B257B55A /* PBXTargetDependency */,
+			);
+			name = TerminalAppTests;
+			productName = TerminalAppTests;
+			productReference = 8C5C3C0E41C24439BAA59511 /* TerminalAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4FCBBC8952C84EEF9B52D36B /* Project object */ = {
+		AB785095531F4563A9C717AB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
-					4630FD1250E94264990A6C1D = {
+					468EF5E72E4E4CE6BD347CA8 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					0BD8241A91E843F69AE90D25 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
 			};
-			buildConfigurationList = E245D6120B574089B2AC8B9F /* Build configuration list for PBXProject "TerminalApp" */;
+			buildConfigurationList = 9411199F6A924C8B963F7C88 /* Build configuration list for PBXProject "TerminalApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = zh_TW;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				zh_TW,
 				en,
 				Base,
 			);
-			mainGroup = FEAA8420ADF1497DB9020520;
+			mainGroup = 2CBDE2FAFA5F481190EB721D;
 			packageReferences = (
-				715B1CA19C874563B6092BC3 /* XCRemoteSwiftPackageReference "SwiftTerm" */,
+				BF3CC323DABA44F1A676846A /* XCRemoteSwiftPackageReference "SwiftTerm" */,
 			);
-			productRefGroup = 0B2B575DE22F499A9168F871 /* Products */;
+			productRefGroup = 735358C5E7CA46F2BF496995 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4630FD1250E94264990A6C1D /* TerminalApp */,
+				468EF5E72E4E4CE6BD347CA8 /* TerminalApp */,
+				0BD8241A91E843F69AE90D25 /* TerminalAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D5376C2274D342A387D038D1 /* Resources */ = {
+		AE56427793064E87B49619B7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF37EA67C95E43AAB03C365D /* Assets.xcassets in Resources */,
+				FEA8B3A9BE1E49A78935F424 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		12850B1D15594737B257B55A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 468EF5E72E4E4CE6BD347CA8 /* TerminalApp */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXSourcesBuildPhase section */
-		35DCD271B1A145AAB6AAD2DD /* Sources */ = {
+		ED73316D823243BC84E52F0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4943BA6558604F25B5BED0F8 /* TerminalAppApp.swift in Sources */,
-				4D1D092DB7014300A8732C06 /* TerminalTab.swift in Sources */,
-				1F7A4FA49EE24E7BB4348851 /* TabManager.swift in Sources */,
-				254015ABA4A2444AACB11E4B /* ShortcutSettings.swift in Sources */,
-				20933252A1EC46109095BF7C /* AppearanceSettings.swift in Sources */,
-				40C4CDE3310441C987617ECE /* ScheduleManager.swift in Sources */,
-				E1CA6204659F4ABE9457650D /* ScheduledInputItem.swift in Sources */,
-				D79A1E37017C41768551515F /* ScheduleMenuCommands.swift in Sources */,
-				235EE0F0D2774A76B70F8D66 /* KeyboardHandler.swift in Sources */,
-				1CD876B32C944C50956BDBC6 /* TerminalViewModel.swift in Sources */,
-				AF33EA3491904007910668B6 /* ContentView.swift in Sources */,
-				8ECD4497CE8C491DAA6D587C /* TabBarView.swift in Sources */,
-				857D781366494470B5C6DA3C /* TerminalContainerView.swift in Sources */,
-				6EC29968FC044A52B829444E /* TerminalNSViewWrapper.swift in Sources */,
-				5FDD7F3741A9409FA258B937 /* ToastView.swift in Sources */,
-				F4F4F393044F41648DBEA36A /* SettingsView.swift in Sources */,
-				63CF3C9F559F485181019592 /* ShortcutSettingsView.swift in Sources */,
-				216C5536E14547CB937D8194 /* ShortcutRecorderView.swift in Sources */,
-				64940206EE0A461EBD8B04CE /* ScheduleListView.swift in Sources */,
-				744A4DC4149845C8BD4944D0 /* ScheduleEditView.swift in Sources */,
-				DBC09627A2D44878915995E7 /* AppearanceSettingsView.swift in Sources */,
-				F9F843BB3CD042A69BE1E9B5 /* ShellLauncher.swift in Sources */,
-				8E1017FA501A4352BA85B7D5 /* TerminalSessionManager.swift in Sources */,
+				E0F7023597A349AD9942EC26 /* TerminalAppApp.swift in Sources */,
+				60F3D51BA3D9430793858A46 /* TerminalWindowManager.swift in Sources */,
+				B45DEF335F084F69B8D62C90 /* TerminalTab.swift in Sources */,
+				59C8538CFAA1425C96A56793 /* TabManager.swift in Sources */,
+				02F3475CECF34FA08FA2D897 /* ShortcutSettings.swift in Sources */,
+				314F3B0BCCA34AD79E13FEA6 /* AppearanceSettings.swift in Sources */,
+				4DE8A725956E4BE181C0CF21 /* ScheduleManager.swift in Sources */,
+				81DFFC6B701D4ACFAF3FB1A3 /* ScheduledInputItem.swift in Sources */,
+				CEE54BA4EA454F7A87CDCE98 /* ScheduleMenuCommands.swift in Sources */,
+				E30C2CE7C1034BB7B396EEA9 /* KeyboardHandler.swift in Sources */,
+				6E3356DB29D54B67ADFAC939 /* TerminalViewModel.swift in Sources */,
+				9FD57B6E1FDC45E2AEE2216C /* ContentView.swift in Sources */,
+				55C8BE803E194E5E9332D750 /* TabBarView.swift in Sources */,
+				44FF33B7A54441E19C449793 /* TabDragSourceView.swift in Sources */,
+				C6FFCBCADFCC4FBEB9B58578 /* TerminalContainerView.swift in Sources */,
+				61628446EEF24158A4486D23 /* TerminalNSViewWrapper.swift in Sources */,
+				C340352BD85E4BF58369567E /* ToastView.swift in Sources */,
+				97CA4535AA834DB6AF9A3A09 /* SettingsView.swift in Sources */,
+				4A83352DAEC94B7FB7849043 /* ShortcutSettingsView.swift in Sources */,
+				EDC99A1EBA48453DBF6CAFA0 /* ShortcutRecorderView.swift in Sources */,
+				03065BE8E1CC469F968149A9 /* ScheduleListView.swift in Sources */,
+				AA4D7F959E734C16B04C34B3 /* ScheduleEditView.swift in Sources */,
+				073FA86524EF42BAAE808938 /* AppearanceSettingsView.swift in Sources */,
+				ED9B0E7982064B55AF18853D /* ShellLauncher.swift in Sources */,
+				576D7F55CD4B408BADDBCD44 /* TerminalSessionManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ED2D3F47294D4A43AE10BFE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DE3B60FF2D04041ACA00E6E /* ScrollbackBufferTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9AABB45C8E51494E84DFEE26 /* Debug */ = {
+		B47702CDFF044E7197CCE5DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -303,10 +404,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -317,49 +415,7 @@
 			};
 			name = Debug;
 		};
-		CC3E0715C8E542C2BE953BDF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSET_CATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_ENTITLEMENTS = TerminalApp/Resources/TerminalApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9T48T9XFP9;
-				INFOPLIST_FILE = TerminalApp/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nickycho.TerminalApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		E6405533ADBD47839A3CA1B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSET_CATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CODE_SIGN_ENTITLEMENTS = TerminalApp/Resources/TerminalApp.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9T48T9XFP9;
-				INFOPLIST_FILE = TerminalApp/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nickycho.TerminalApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		EE739B0C45264957864189BD /* Release */ = {
+		955A9250C1EB439CBDCC10E4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -382,47 +438,100 @@
 			};
 			name = Release;
 		};
+		D1AC22345D4B4CA88E957BAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSET_CATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TerminalApp/Resources/TerminalApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = TerminalApp/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickycho.TerminalApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		275065410D8E4D229A9B7B6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSET_CATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TerminalApp/Resources/TerminalApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = TerminalApp/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickycho.TerminalApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C2DAFE12D0A44B5A9CC1BC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickycho.TerminalAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TerminalApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TerminalApp";
+			};
+			name = Debug;
+		};
+		C27C01F9C903489DBD49BB1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nickycho.TerminalAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TerminalApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TerminalApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A8E472FDE45C4E40BEA882AC /* Build configuration list for PBXNativeTarget "TerminalApp" */ = {
+		9411199F6A924C8B963F7C88 /* Build configuration list for PBXProject "TerminalApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E6405533ADBD47839A3CA1B9 /* Debug */,
-				CC3E0715C8E542C2BE953BDF /* Release */,
+				B47702CDFF044E7197CCE5DC /* Debug */,
+				955A9250C1EB439CBDCC10E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E245D6120B574089B2AC8B9F /* Build configuration list for PBXProject "TerminalApp" */ = {
+		D5241B412616419B9F3E6957 /* Build configuration list for PBXNativeTarget "TerminalApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9AABB45C8E51494E84DFEE26 /* Debug */,
-				EE739B0C45264957864189BD /* Release */,
+				D1AC22345D4B4CA88E957BAE /* Debug */,
+				275065410D8E4D229A9B7B6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13898F8AA3B54F09B6AC1C11 /* Build configuration list for PBXNativeTarget "TerminalAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2DAFE12D0A44B5A9CC1BC4D /* Debug */,
+				C27C01F9C903489DBD49BB1E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		715B1CA19C874563B6092BC3 /* XCRemoteSwiftPackageReference "SwiftTerm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/migueldeicaza/SwiftTerm";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9DC84C6CF57944B3A0F16E72 /* SwiftTerm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 715B1CA19C874563B6092BC3 /* XCRemoteSwiftPackageReference "SwiftTerm" */;
-			productName = SwiftTerm;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 4FCBBC8952C84EEF9B52D36B /* Project object */;
+	rootObject = AB785095531F4563A9C717AB /* Project object */;
 }
