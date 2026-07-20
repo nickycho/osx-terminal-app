@@ -12,9 +12,11 @@ final class TerminalSessionManager: NSObject {
 
     weak var delegate: TerminalSessionDelegate?
 
-    override init() {
+    init(scrollbackLines: Int = AppearanceSettings.shared.scrollbackLines) {
         terminalView = LocalProcessTerminalView(frame: .zero)
         super.init()
+        terminalView.terminal.options.scrollback = scrollbackLines
+        terminalView.terminal.setup(isReset: true)
         let size = AppearanceSettings.shared.fontSize
         terminalView.font = Self.makeFont(size: size)
         terminalView.processDelegate = self
