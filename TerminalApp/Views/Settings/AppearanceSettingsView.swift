@@ -31,7 +31,7 @@ struct AppearanceSettingsView: View {
                         in: AppearanceSettings.scrollbackRange,
                         step: 1_000
                     ) {
-                        Text("\\(settings.scrollbackLines.formatted()) 行")
+                        Text("\(settings.scrollbackLines.formatted()) 行")
                             .monospacedDigit()
                             .frame(width: 88, alignment: .trailing)
                     }
