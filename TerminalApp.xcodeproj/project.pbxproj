@@ -35,6 +35,7 @@
 		7DE3B60FF2D04041ACA00E6E /* ScrollbackBufferTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0440FCE301464DAD5F403C /* ScrollbackBufferTests.swift */; };
 		94E64FC43C404C4FA029333B /* SwiftTerm in Frameworks */ = {isa = PBXBuildFile; productRef = 7B73D7C488A04DC5828CB2B5 /* SwiftTerm */; };
 		FEA8B3A9BE1E49A78935F424 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0AE5C65CFF42EBB8B7DC3B /* Assets.xcassets */; };
+		D1A42E0078C84C84A614C001 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D1A42E0078C84C84A614C002 /* Localizable.xcstrings */; };
 		DCB4E702985140EF9B877FA1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F660F49A564572921DB5DE /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		8AAC868387E042E59E102D6B /* TerminalApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TerminalApp.entitlements; sourceTree = "<group>"; };
 		39DA54936E28446E95A20286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE0AE5C65CFF42EBB8B7DC3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1A42E0078C84C84A614C002 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -238,6 +240,7 @@
 				8AAC868387E042E59E102D6B /* TerminalApp.entitlements */,
 				39DA54936E28446E95A20286 /* Info.plist */,
 				CE0AE5C65CFF42EBB8B7DC3B /* Assets.xcassets */,
+				D1A42E0078C84C84A614C002 /* Localizable.xcstrings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -302,10 +305,13 @@
 			};
 			buildConfigurationList = 9411199F6A924C8B963F7C88 /* Build configuration list for PBXProject "TerminalApp" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = zh_TW;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
+				ko,
+				"zh-Hant",
 				Base,
 			);
 			mainGroup = 2CBDE2FAFA5F481190EB721D;
@@ -328,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEA8B3A9BE1E49A78935F424 /* Assets.xcassets in Resources */,
+				D1A42E0078C84C84A614C001 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

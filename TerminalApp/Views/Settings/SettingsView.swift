@@ -5,19 +5,19 @@ struct SettingsView: View {
         TabView {
             AppearanceSettingsView()
                 .tabItem {
-                    Label("外觀", systemImage: "paintbrush")
+                    Label("Appearance", systemImage: "paintbrush")
                 }
 
             ShortcutSettingsView()
                 .tabItem {
-                    Label("快捷鍵", systemImage: "keyboard")
+                    Label("Keyboard Shortcuts", systemImage: "keyboard")
                 }
 
             ScheduleListView()
                 .tabItem {
-                    Label("排程", systemImage: "clock")
+                    Label("Schedules", systemImage: "clock")
                 }
         }
-        .frame(width: 480, height: 440)
+        .frame(width: 480, height: 480)
     }
 }

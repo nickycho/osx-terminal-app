@@ -17,8 +17,8 @@ struct ScheduleListView: View {
                             .contentShape(Rectangle())
                             .onTapGesture { editingItem = item }
                             .contextMenu {
-                                Button("編輯") { editingItem = item }
-                                Button("刪除", role: .destructive) {
+                                Button("Edit") { editingItem = item }
+                                Button("Delete", role: .destructive) {
                                     scheduleManager.deleteItem(id: item.id)
                                 }
                             }
@@ -52,9 +52,9 @@ struct ScheduleListView: View {
 
     private var emptyState: some View {
         VStack(spacing: 8) {
-            Text("尚無排程")
+            Text("No schedules yet")
                 .foregroundColor(.secondary)
-            Button("新增排程") { isAdding = true }
+            Button("Add Schedule") { isAdding = true }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
@@ -62,23 +62,28 @@ struct ScheduleListView: View {
 
 struct ScheduleRowView: View {
     @EnvironmentObject var scheduleManager: ScheduleManager
+    @Environment(\.locale) private var locale
     let item: ScheduledInputItem
 
     var nextExecText: String {
-        guard item.isEnabled else { return "已停用" }
+        guard item.isEnabled else { return String(localized: "Disabled", locale: locale) }
         guard let next = scheduleManager.nextExecution(for: item) else { return "─" }
-        let f = RelativeDateTimeFormatter()
-        f.unitsStyle = .abbreviated
-        return "下次：" + f.localizedString(for: next, relativeTo: Date())
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        formatter.locale = locale
+        let prefix = String(localized: "Next:", locale: locale)
+        return "\(prefix) \(formatter.localizedString(for: next, relativeTo: Date()))"
     }
 
     var scheduleLabel: String {
         switch item.scheduleType {
         case .oneTime:
-            let f = DateFormatter()
-            f.dateStyle = .short
-            f.timeStyle = .short
-            return "一次性  \(f.string(from: item.executeAt))"
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            formatter.timeStyle = .short
+            formatter.locale = locale
+            let typeName = String(localized: "One-time", locale: locale)
+            return "\(typeName)  \(formatter.string(from: item.executeAt))"
         case .periodic:
             return item.cronExpression
         }
@@ -89,7 +94,7 @@ struct ScheduleRowView: View {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 6) {
                     Text(item.name).font(.system(size: 13, weight: .medium))
-                    Text(item.scheduleType.rawValue)
+                    Text(LocalizedStringKey(item.scheduleType.localizationKey))
                         .font(.system(size: 10))
                         .padding(.horizontal, 5)
                         .padding(.vertical, 1)

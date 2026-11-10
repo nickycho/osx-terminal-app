@@ -48,7 +48,7 @@ struct ContentView: View {
     }
 
     private var emptyStateView: some View {
-        Text("按 ⌘T 開啟新分頁")
+        Text("Press ⌘T to open a new tab")
             .foregroundColor(.secondary)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

@@ -3,6 +3,13 @@ import Foundation
 enum ScheduleType: String, Codable, CaseIterable {
     case oneTime  = "一次性"
     case periodic = "週期性"
+
+    var localizationKey: String {
+        switch self {
+        case .oneTime: return "One-time"
+        case .periodic: return "Periodic"
+        }
+    }
 }
 
 struct ScheduledInputItem: Identifiable, Codable, Equatable {

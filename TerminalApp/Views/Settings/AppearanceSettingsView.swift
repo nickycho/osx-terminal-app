@@ -6,9 +6,23 @@ struct AppearanceSettingsView: View {
 
     var body: some View {
         Form {
+            Section("Language") {
+                Picker("Language", selection: $settings.language) {
+                    ForEach(AppLanguage.allCases) { language in
+                        Text(LocalizedStringKey(language.pickerLocalizationKey))
+                            .tag(language)
+                    }
+                }
+                .pickerStyle(.menu)
+
+                Text("Unsupported system languages default to English.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
             Section {
                 HStack {
-                    Text("字體大小")
+                    Text("Font Size")
                     Spacer()
                     Stepper(value: $settings.fontSize, in: 8...36, step: 1) {
                         Text("\(Int(settings.fontSize)) pt")
@@ -17,11 +31,12 @@ struct AppearanceSettingsView: View {
                     }
                 }
             }
-            Section("終端機") {
+
+            Section("Terminal") {
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Scrollback Buffer")
-                        Text("套用於新分頁")
+                        Text("Applies to new tabs")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -31,9 +46,12 @@ struct AppearanceSettingsView: View {
                         in: AppearanceSettings.scrollbackRange,
                         step: 1_000
                     ) {
-                        Text("\(settings.scrollbackLines.formatted()) 行")
-                            .monospacedDigit()
-                            .frame(width: 88, alignment: .trailing)
+                        HStack(spacing: 4) {
+                            Text(settings.scrollbackLines.formatted())
+                            Text("Lines")
+                        }
+                        .monospacedDigit()
+                        .frame(width: 88, alignment: .trailing)
                     }
                 }
             }

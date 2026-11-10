@@ -6,10 +6,10 @@ struct ShortcutSettingsView: View {
 
     var body: some View {
         Form {
-            Section("鍵盤快捷鍵") {
+            Section("Keyboard Shortcuts") {
                 ForEach(ShortcutAction.allCases, id: \.self) { action in
                     HStack {
-                        Text(action.displayName)
+                        Text(LocalizedStringKey(action.displayName))
                             .frame(minWidth: 100, alignment: .leading)
 
                         Spacer()
@@ -27,7 +27,7 @@ struct ShortcutSettingsView: View {
                             }
                         )
 
-                        Button("重設") {
+                        Button("Reset") {
                             shortcutSettings.resetToDefault(for: action)
                             if recordingAction == action { recordingAction = nil }
                         }

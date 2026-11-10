@@ -2,10 +2,11 @@ import SwiftUI
 
 struct ScheduleMenuCommands: Commands {
     @ObservedObject var scheduleManager: ScheduleManager
+    @ObservedObject var appearanceSettings: AppearanceSettings
 
     var body: some Commands {
-        CommandMenu("排程") {
-            Button("管理排程...") {
+        CommandMenu(appearanceSettings.localized("Schedules")) {
+            Button(appearanceSettings.localized("Manage Schedules...")) {
                 scheduleManager.openSettingsAction?()
             }
 
@@ -13,7 +14,7 @@ struct ScheduleMenuCommands: Commands {
 
             let enabled = scheduleManager.items.filter(\.isEnabled)
             if enabled.isEmpty {
-                Text("尚無啟用的排程").foregroundColor(.secondary)
+                Text(appearanceSettings.localized("No active schedules")).foregroundColor(.secondary)
             } else {
                 ForEach(enabled) { item in
                     Button(item.name) {

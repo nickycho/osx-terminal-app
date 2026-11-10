@@ -28,9 +28,9 @@ struct TerminalContainerView: View {
 
     private var sessionEndedOverlay: some View {
         VStack(spacing: 12) {
-            Text("進程已結束")
+            Text("Process ended")
                 .font(.headline)
-            Text("關閉此分頁或開啟新分頁繼續使用")
+            Text("Close this tab or open a new tab to continue")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }

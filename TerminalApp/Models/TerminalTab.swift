@@ -19,14 +19,14 @@ enum TabColor: String, CaseIterable, Codable {
 
     var label: String {
         switch self {
-        case .default: return "預設"
-        case .red:     return "紅色"
-        case .orange:  return "橘色"
-        case .yellow:  return "黃色"
-        case .green:   return "綠色"
-        case .blue:    return "藍色"
-        case .purple:  return "紫色"
-        case .pink:    return "粉紅"
+        case .default: return "Default"
+        case .red:     return "Red"
+        case .orange:  return "Orange"
+        case .yellow:  return "Yellow"
+        case .green:   return "Green"
+        case .blue:    return "Blue"
+        case .purple:  return "Purple"
+        case .pink:    return "Pink"
         }
     }
 }

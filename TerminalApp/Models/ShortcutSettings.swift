@@ -11,12 +11,12 @@ enum ShortcutAction: String, CaseIterable {
 
     var displayName: String {
         switch self {
-        case .newTab:       return "新增分頁"
-        case .closeTab:     return "關閉分頁"
-        case .nextTab:      return "下一個分頁"
-        case .previousTab:  return "上一個分頁"
-        case .openSettings: return "開啟設定"
-        case .clearBuffer:  return "清除畫面"
+        case .newTab:       return "New Tab"
+        case .closeTab:     return "Close Tab"
+        case .nextTab:      return "Next Tab"
+        case .previousTab:  return "Previous Tab"
+        case .openSettings: return "Open Settings"
+        case .clearBuffer:  return "Clear Screen"
         }
     }
 

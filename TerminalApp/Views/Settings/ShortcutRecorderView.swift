@@ -2,6 +2,7 @@ import SwiftUI
 import AppKit
 
 struct ShortcutRecorderView: NSViewRepresentable {
+    @Environment(\.locale) private var locale
     let shortcut: KeyboardShortcutData
     let isRecording: Bool
     let onStartRecording: () -> Void
@@ -13,6 +14,8 @@ struct ShortcutRecorderView: NSViewRepresentable {
         view.coordinator = context.coordinator
         view.displayShortcut = shortcut
         view.isRecording = isRecording
+        view.recordingText = String(localized: "Press a shortcut…", locale: locale)
+        view.unassignedText = String(localized: "Not Set", locale: locale)
         return view
     }
 
@@ -20,6 +23,8 @@ struct ShortcutRecorderView: NSViewRepresentable {
         nsView.coordinator = context.coordinator
         nsView.displayShortcut = shortcut
         nsView.isRecording = isRecording
+        nsView.recordingText = String(localized: "Press a shortcut…", locale: locale)
+        nsView.unassignedText = String(localized: "Not Set", locale: locale)
         nsView.needsDisplay = true
     }
 
@@ -51,6 +56,8 @@ struct ShortcutRecorderView: NSViewRepresentable {
 final class ShortcutRecorderNSView: NSControl {
     var isRecording = false { didSet { needsDisplay = true } }
     var displayShortcut: KeyboardShortcutData? { didSet { needsDisplay = true } }
+    var recordingText = "Press a shortcut…"
+    var unassignedText = "Not Set"
     var coordinator: ShortcutRecorderView.Coordinator?
 
     override var intrinsicContentSize: NSSize {
@@ -72,7 +79,7 @@ final class ShortcutRecorderNSView: NSControl {
         path.lineWidth = 0.5
         path.stroke()
 
-        let text = isRecording ? "請按下快捷鍵…" : (displayShortcut?.displayString ?? "未設定")
+        let text = isRecording ? recordingText : (displayShortcut?.displayString ?? unassignedText)
         let attrs: [NSAttributedString.Key: Any] = [
             .font: NSFont.systemFont(ofSize: 12),
             .foregroundColor: isRecording ? NSColor.secondaryLabelColor : NSColor.labelColor

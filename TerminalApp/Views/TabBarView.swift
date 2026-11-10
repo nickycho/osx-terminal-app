@@ -90,6 +90,7 @@ struct TabItemView: View {
     var onDetach: (UUID) -> Void = { _ in }
 
     @EnvironmentObject var tabManager: TabManager
+    @Environment(\.locale) private var locale
     @State private var isHovered = false
 
     var accentColor: Color {
@@ -148,11 +149,11 @@ struct TabItemView: View {
 
     @ViewBuilder
     private var contextMenuItems: some View {
-        Button("重新命名") { promptRename() }
+        Button("Rename") { promptRename() }
 
         Divider()
 
-        Menu("分頁顏色") {
+        Menu("Tab Color") {
             ForEach(TabColor.allCases, id: \.self) { c in
                 Button {
                     tab.tabColor = c
@@ -163,7 +164,7 @@ struct TabItemView: View {
                                 .fill(color)
                                 .frame(width: 10, height: 10)
                         }
-                        Text(c.label)
+                        Text(LocalizedStringKey(c.label))
                         if tab.tabColor == c {
                             Spacer()
                             Image(systemName: "checkmark")
@@ -175,16 +176,16 @@ struct TabItemView: View {
 
         Divider()
 
-        Button("關閉分頁", role: .destructive) {
+        Button("Close Tab", role: .destructive) {
             tabManager.closeTab(id: tab.id)
         }
     }
 
     private func promptRename() {
         let alert = NSAlert()
-        alert.messageText = "重新命名分頁"
-        alert.addButton(withTitle: "確認")
-        alert.addButton(withTitle: "取消")
+        alert.messageText = String(localized: "Rename Tab", locale: locale)
+        alert.addButton(withTitle: String(localized: "Confirm", locale: locale))
+        alert.addButton(withTitle: String(localized: "Cancel", locale: locale))
 
         let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))
         field.stringValue = tab.customTitle ?? tab.displayTitle
